@@ -6,6 +6,9 @@
 #include "AuraCharacterBase.h"
 #include "AuraPlayerCharacter.generated.h"
 
+class UCameraComponent;
+class USpringArmComponent;
+
 UCLASS()
 class AURA_API AAuraPlayerCharacter : public AAuraCharacterBase
 {
@@ -26,5 +29,11 @@ public:
     // Called to bind functionality to input
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+private:
+    UPROPERTY(VisibleAnywhere, Category = "Components")
+    TObjectPtr<USpringArmComponent> SpringArmComponent;
+
+    UPROPERTY(VisibleAnywhere, Category = "Components")
+    TObjectPtr<UCameraComponent> CameraComponent;
 
 };
